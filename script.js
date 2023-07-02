@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskId = Date.now().toString();
     li.textContent = task;
     li.dataset.taskId = taskId;
-    
-    if (status) {
-      li.classList.add(status.toLowerCase());
-      // li.classList.add(status === 'ToDo' ? 'todo' : status.toLowerCase());
-    }
+    li.classList.add(status || '');
+    // if (status) {
+    //   li.classList.add(status.toLowerCase());
+    //   // li.classList.add(status === 'ToDo' ? 'todo' : status.toLowerCase());
+    // }
  
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';

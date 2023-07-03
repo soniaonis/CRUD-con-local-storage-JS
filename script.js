@@ -1,15 +1,12 @@
-// Obtener referencias a los elementos HTML
 const todoForm = document.getElementById("todo-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 
-// Función para agregar una tarea
 function addTask(task) {
   const li = document.createElement("li");
   const taskText = document.createElement("span");
   taskText.innerText = task;
 
-  // Agregar botones para editar y eliminar una tarea
   const editButton = document.createElement("button");
   editButton.innerText = "Edit";
   editButton.addEventListener("click", () => {
@@ -29,7 +26,6 @@ function addTask(task) {
   taskList.appendChild(li);
 }
 
-// Función para editar una tarea
 function editTask(li) {
   const taskText = li.querySelector("span");
   const taskInput = document.createElement("input");
@@ -51,12 +47,10 @@ function editTask(li) {
   taskInput.focus();
 }
 
-// Función para eliminar una tarea
 function deleteTask(li) {
   li.remove();
 }
 
-// Función para guardar las tareas en el LocalStorage
 function saveTasks() {
   const tasks = [];
   const taskItems = taskList.getElementsByTagName("li");
@@ -68,7 +62,6 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Función para cargar las tareas desde el LocalStorage
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -79,7 +72,6 @@ function loadTasks() {
   }
 }
 
-// Evento para agregar una nueva tarea
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const task = taskInput.value.trim();
@@ -91,7 +83,6 @@ todoForm.addEventListener("submit", (e) => {
   }
 });
 
-// Cargar las tareas al cargar la página
 window.addEventListener("DOMContentLoaded", () => {
   loadTasks();
 });
